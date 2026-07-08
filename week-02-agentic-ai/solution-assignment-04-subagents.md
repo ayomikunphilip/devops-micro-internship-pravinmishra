@@ -20,7 +20,7 @@ Create the `.claude/agents/` directory and add all required agent files.
 
 #### Screenshot 1 — Agents folder structure in VS Code
 
-Add your screenshot here.
+![Screenshot 1](screenshots/Agents.png)
 
 ---
 
@@ -34,19 +34,19 @@ Analyze the configuration differences between the three agents and demonstrate u
 
 #### 1. Why does the cost optimizer use Haiku instead of Sonnet?
 
-Add your answer here...
+Cost review is basically checking things against a fixed checklist: price classes, storage tiers, TTLs. It's not deep reasoning, so a cheaper, faster model is enough. Plus there's something fitting about not burning expensive tokens on the agent whose whole job is saving money.
 
 ---
 
 #### 2. Why does the security auditor NOT have Write in its tools list?
 
-Add your answer here...
+Because an auditor should report problems, not quietly fix them. If it could write files, it might change your infrastructure without anyone reviewing the change first. Keeping it read-only (Read, Grep, Glob) means every fix it suggests has to go through a human, or through tf-writer, before anything actually changes.
 
 ---
 
 #### 3. Why does the tf-writer use `inherit` instead of a specific model?
 
-Add your answer here...
+Writing real Terraform code takes more judgment than the other two tasks: architecture calls, best practices, getting things actually correct. So instead of locking it to one model tier, it just uses whatever model you're running in your main session. If you're on Opus for a tough problem, tf-writer gets that same power too.
 
 ---
 
@@ -54,13 +54,13 @@ Add your answer here...
 
 #### Screenshot 2 — security-auditor.md frontmatter
 
-Add your screenshot here.
+![Screenshot 2](screenshots/Security.png)
 
 ---
 
 #### Screenshot 3 — cost-optimizer.md frontmatter
 
-Add your screenshot here.
+![Screenshot 3](screenshots/cost-optimizer.png)
 
 ---
 
@@ -74,13 +74,13 @@ Trigger the security auditor agent and analyze the generated security report for
 
 #### Screenshot 4 — Security auditor delegation triggered
 
-Add your screenshot here.
+![Screenshot 4](screenshots/sec-aud.png)
 
 ---
 
 #### Screenshot 5 — Security audit report output
 
-Add your screenshot here.
+![Screenshot 5](screenshots/Full-sec.png)
 
 ---
 
@@ -94,7 +94,7 @@ Trigger the cost optimizer agent and review the generated cost optimization repo
 
 #### Screenshot 6 — Cost optimization report output
 
-Add your screenshot here.
+![Screenshot 6](screenshots/Cost-op.png)
 
 ---
 
@@ -111,7 +111,7 @@ Add your screenshot here.
 
 Paste your Google Doc URL here:
 
-`__________________________`
+`https://docs.google.com/document/d/1ARm37kYmVrCujvgAFxK4QyXC1vPRCCrnlDRNktWnmBA/edit?usp=sharing`
 
 ---
 
@@ -119,7 +119,7 @@ Paste your Google Doc URL here:
 
 Paste your forked repository URL here:
 
-`__________________________`
+`https://github.com/ayomikunphilip/Ultimate-Agentic-DevOps-with-Claude-Code`
 
 ---
 

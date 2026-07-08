@@ -134,7 +134,7 @@ Week 01 → Success Mindset
 |------|-------|--------|------------|---------------|-----------|
 | 00 | Internet & Networking Basics | ✅ Completed | ✅ Completed | https://www.linkedin.com/posts/ayomikunphilip_completed-the-first-assignment-of-the-devops-activity-7460002918188953604-GvgW?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs | — |
 | 01 | Success Mindset | ✅ Completed | ✅ Completed | https://www.linkedin.com/posts/ayomikunphilip_im-excited-to-share-that-i-began-the-devops-ugcPost-7477203295124676608-hG-R/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs | https://medium.com/@ayomikunajayi98/from-microbiology-to-building-intelligent-cloud-systems-the-inspiring-journey-of-ayomikun-philip-9c6bf52af857?sharedUserId=ayomikunajayi98 |
-| 02 | Agentic AI with Claude Code | ⬜ Not Started | ⏳ Pending | — | — |
+| 02 | Agentic AI with Claude Code | 🔄 In Progress | 🔄 In Progress | — | — |
 | 03 | Linux for DevOps | ⬜ Not Started | ⏳ Pending | — | — |
 | 04 | Bash Scripting | ⬜ Not Started | ⏳ Pending | — | — |
 | 05 | Git & GitHub | ⬜ Not Started | ⏳ Pending | — | — |
