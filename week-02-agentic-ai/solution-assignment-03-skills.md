@@ -40,7 +40,7 @@ Place all required skill files into their correct directories and verify their c
 
 #### Screenshot 3 — tf-plan/SKILL.md showing allowed-tools restrictions
 
-![Screenshot 3](screenshots/Tf_plan.png)
+![Screenshot 3](screenshots/scaffF.png)
 
 ---
 
