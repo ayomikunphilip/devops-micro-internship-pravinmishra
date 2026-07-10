@@ -91,7 +91,7 @@ Verify that Claude correctly recalls stored memory after a full session reset.
 
 Paste your forked repository URL here:
 
-`https://github.com/ayomikunphilip/Ultimate-Agentic-DevOps-with-Claude-Code`
+https://github.com/ayomikunphilip/Ultimate-Agentic-DevOps-with-Claude-Code
 
 ---
 
@@ -99,7 +99,7 @@ Paste your forked repository URL here:
 
 ![LinkedIn screenshot](screenshots/LinkedIn-2.png)
 
-Link: `https://www.linkedin.com/posts/ayomikunphilip_dmibypravinmishra-agenticai-claudecode-share-7481005967606882304-SYg5/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs`
+Link: https://www.linkedin.com/posts/ayomikunphilip_dmibypravinmishra-agenticai-claudecode-share-7481005967606882304-SYg5/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs
 
 
 # Completion Checklist

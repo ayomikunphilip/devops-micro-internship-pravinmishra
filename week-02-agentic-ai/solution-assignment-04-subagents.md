@@ -111,7 +111,7 @@ Trigger the cost optimizer agent and review the generated cost optimization repo
 
 Paste your Google Doc URL here:
 
-`https://docs.google.com/document/d/1ARm37kYmVrCujvgAFxK4QyXC1vPRCCrnlDRNktWnmBA/edit?usp=sharing`
+https://docs.google.com/document/d/1ARm37kYmVrCujvgAFxK4QyXC1vPRCCrnlDRNktWnmBA/edit?usp=sharing
 
 ---
 
@@ -119,7 +119,7 @@ Paste your Google Doc URL here:
 
 Paste your forked repository URL here:
 
-`https://github.com/ayomikunphilip/Ultimate-Agentic-DevOps-with-Claude-Code`
+https://github.com/ayomikunphilip/Ultimate-Agentic-DevOps-with-Claude-Code
 
 ---
 

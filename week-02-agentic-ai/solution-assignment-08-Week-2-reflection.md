@@ -54,7 +54,7 @@ You can publish your blog on:
 
 Blog Link:
 
-`https://medium.com/@ayomikunajayi98/reflection-week-2-d707a12ed387?sharedUserId=ayomikunajayi98`
+https://medium.com/@ayomikunajayi98/reflection-week-2-d707a12ed387?sharedUserId=ayomikunajayi98
 
 ---
 
@@ -108,7 +108,7 @@ Paste your LinkedIn post content here
 
 ### LinkedIn Post Link:
 
-`https://www.linkedin.com/posts/ayomikunphilip_dmibypravinmishra-agenticai-claudecode-ugcPost-7481159868926758913-c89N/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs`
+https://www.linkedin.com/posts/ayomikunphilip_dmibypravinmishra-agenticai-claudecode-ugcPost-7481159868926758913-c89N/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs
 
 ---
 
