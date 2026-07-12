@@ -46,7 +46,7 @@ You can publish your blog on:
 
 #### Screenshot 1 — Blog published and visible
 
-![Screenshot 1](screenshots/blog.png)
+Add your screenshot here.
 
 ---
 
@@ -54,7 +54,7 @@ You can publish your blog on:
 
 Blog Link:
 
-https://medium.com/@ayomikunajayi98/reflection-week-2-d707a12ed387?sharedUserId=ayomikunajayi98
+`__________________________________________`
 
 ---
 
@@ -78,7 +78,7 @@ Your post must include:
 
 ### Required P.S. Line (Must Include Exactly)
 
-P.S. This post is a part of DevOps Micro Internship with Agentic AI Cohort-3 by Pravin Mishra. You can start your DevOps journey by joining this Discord community ( [https://discord.pravinmishra.com/](https://discord.pravinmishra.com/) ).
+> **P.S. This post is a part of DevOps Micro Internship with Agentic AI Cohort-3 by [Pravin Mishra](https://www.linkedin.com/in/pravin-mishra-aws-trainer/). You can start your DevOps journey by joining [DMI waiting list](https://forms.gle/3hvrWJBDzsDeJoPs6) (https://forms.gle/3hvrWJBDzsDeJoPs6).**
 
 ---
 
@@ -92,7 +92,7 @@ P.S. This post is a part of DevOps Micro Internship with Agentic AI Cohort-3 by 
 
 #### Screenshot 2 — LinkedIn post published
 
-![Screenshot 2](screenshots/LinkedIn_wk.png)
+Add your screenshot here.
 
 ---
 
@@ -108,7 +108,7 @@ Paste your LinkedIn post content here
 
 ### LinkedIn Post Link:
 
-https://www.linkedin.com/posts/ayomikunphilip_dmibypravinmishra-agenticai-claudecode-ugcPost-7481159868926758913-c89N/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs
+`__________________________________________`
 
 ---
 
