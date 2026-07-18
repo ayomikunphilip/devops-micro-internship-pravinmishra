@@ -25,7 +25,7 @@ Take a screenshot of your interaction showing:
 
 Save your screenshot in the `screenshots` folder and update the file name below.
 
-![Task 1 Screenshot](screenshots/task-1-chatgpt.png)
+![Task 1 Screenshot](screenshots/ChatGPt_Response.png)
 
 
 Replace `task-1-chatgpt.png` with your actual screenshot file name.
@@ -34,7 +34,7 @@ Replace `task-1-chatgpt.png` with your actual screenshot file name.
 
 ## What I Learned (2–3 lines)
 
-Add your answer here...
+I learned how to use ChatGPT effectively by writing clear prompts, refining responses through follow-up questions, and applying it to solve problems, learn faster, and improve productivity. I also gained an understanding of networking fundamentals, including how devices communicate, the role of IP addresses and protocols, and how networks enable reliable data exchange across connected systems.
 
 ---
 
@@ -59,7 +59,7 @@ Write a short explanation (**100–150 words**) that includes:
 
 ## Answer
 
-Add your answer here...
+If my friend is launching an online bookstore called EpicReads with the website hosted in Finland, and someone from the USA wants to access it, the USA end user’s computer will first use the website’s IP Address, which is like the home address of the server in Finland. The browser then uses the TCP/IP protocol to communicate over the Internet. TCP breaks down data into packets while IP ensures that the packets go correctly to their destination. This is called Routing. This process is called Packet Switching, where packets may take different routes in the Internet before reaching Finland. When they get to Finland, the TCP protocol reassembles the packets. The browser then uses HTTP
 
 ---
 
@@ -91,7 +91,7 @@ EpicReads bookstore has two application versions:
 
 Save your diagram image in the `screenshots` folder and update the file name below.
 
-![Application Architecture Diagram](screenshots/task-3-diagram.png)
+![Application Architecture Diagram](screenshots/Architecture_video.png)
 
 
 Replace `task-3-diagram.png` with your actual diagram file name.
@@ -102,18 +102,18 @@ Replace `task-3-diagram.png` with your actual diagram file name.
 
 ### Frontend
 
-* Add your answer here...
-* Add your answer here...
+* react.js
+* Tailwind CSS
 
 ### Backend
 
-* Add your answer here...
-* Add your answer here...
+* Node.js
+* JWT(JSON Web Token)
 
 ### Database
 
-* Add your answer here...
-* Add your answer here...
+* MySQL
+* MongoDB
 
 ---
 
@@ -142,7 +142,9 @@ In **50–100 words**, explain in your own words:
 
 ## Answer
 
-Add your answer here...
+The Domain Name System(DNS) is like the Internet’s phonebook. It’s easier for humans to remember the domain name, which is epicreads.com, but the computer communicates using IP addresses like 52.172.142.222. The Domain Name System translates the Domain name into the correct IP address.
+
+My friend should use the A Record type because it directly connects the Domain name to an IPv4 address, enabling him to reach the server hosting the website by just typing in epicreads.com.
 
 ---
 
@@ -178,7 +180,7 @@ ls
 
 Save your screenshot in the `screenshots` folder and update the file name below.
 
-![VS Code Setup Screenshot](screenshots/task-5-vscode.png)
+![VS Code Setup Screenshot](screenshots/the_VS.png)
 
 
 Replace `task-5-vscode.png` with your actual screenshot file name.
@@ -218,7 +220,7 @@ Add the following credit note at the end of your post:
 Paste your LinkedIn post URL here:
 
 ```text
-Add your URL here...
+https://www.linkedin.com/posts/ayomikunphilip_completed-the-first-assignment-of-the-devops-share-7460002917224353792-2yuH?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs
 ```
 
 ---
@@ -227,7 +229,22 @@ Add your URL here...
 
 Paste the full text of your LinkedIn post here:
 
-Add your post content here...
+Completed the first assignment of the DevOps Micro Internship Cohort by Pravin Mishra. 🚀
+
+This assignment focused on foundational DevOps and networking concepts, including:
+• Using ChatGPT effectively as a technical learning assistant
+• Understanding networking protocols and real-world communication models
+• Explaining packet switching, TCP/IP, HTTP/HTTPS, and IP addressing in global web communication
+• Comparing two-tier and three-tier application architectures with relevant technologies
+• Understanding DNS fundamentals and configuring domain-to-IP mapping using A records
+• Setting up and working within the Visual Studio Code development environment
+
+This hands-on assignment strengthened my understanding of core infrastructure and networking concepts that form the foundation of DevOps engineering.
+I’m documenting my learning journey publicly while continuously improving my technical knowledge and practical skills in cloud and DevOps technologies.
+
+P.S. This post is part of the DevOps Micro Internship Cohort run by Pravin Mishra. You can start your DevOps journey for free from his YouTube Playlist.
+Feedback, insights, and networking opportunities are always welcome! 
+
 
 ---
 
@@ -235,19 +252,19 @@ Add your post content here...
 
 ### What did you find easy?
 
-Add your answer here...
+I found the whole concept of Internet and Networking, App architecture and stack as well as Domain and DNS.
 
 ---
 
 ### What was difficult?
 
-Add your answer here...
+Troubleshooting. And that’s because I don’t have prior knowledge of AWS.
 
 ---
 
 ### What will you improve next week?
 
-Add your answer here...
+Overall improvement on how I use ChatGPT and how I approach learning.
 
 ---
 
