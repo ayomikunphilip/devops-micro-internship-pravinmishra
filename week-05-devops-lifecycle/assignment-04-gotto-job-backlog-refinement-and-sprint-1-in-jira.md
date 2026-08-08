@@ -20,7 +20,7 @@ Choose Team Mode or Solo Mode, and document how each Scrum role (Product Owner, 
 
 #### Screenshot 1 — Jira "Create project" screen, or the project sidebar after creation
 
-Add your screenshot here.
+![Screenshot 1](screenshots/GoTO%20Created.png)
 
 ---
 
@@ -28,7 +28,18 @@ Add your screenshot here.
 
 Write one line for each role: PO (what you prioritized), SM (how you ensured process), Dev Lead (what you built), DevOps Lead (how you shipped).
 
-Write your answer here.
+Product Owner:
+Responsible for deciding which tasks are most important and should come first in the backlog. Since this is Solo Mode, I will personally rank the Stories based on their value to the user or business in Task 4.
+
+Scrum Master (SM):
+Responsible for making sure the Scrum process is followed properly. This includes managing time, carrying out sprint activities like planning and retrospectives, and keeping myself accountable to the Scrum practices.
+
+Dev Lead:
+Responsible for building the selected Story. In Task 8, this means implementing the chosen UI changes and making sure they work correctly.
+
+DevOps Lead:
+Responsible for getting the completed work deployed. This includes committing the changes, deploying them, and checking that the updated version is live and working.
+
 
 ---
 
@@ -42,7 +53,7 @@ Create a Team-managed Scrum project named `Gotto Job – Team <#>` (Team Mode) o
 
 #### Screenshot 2 — Project created page showing the project name and key
 
-Add your screenshot here.
+![Screenshot 2](screenshots/key%20showing.png)
 
 ---
 
@@ -56,7 +67,7 @@ Create the Epic `Improve Gotto Job UI discoverability & trust` to group the UI i
 
 #### Screenshot 3 — Backlog showing the Epic panel with the Epic visible
 
-Add your screenshot here.
+![Screenshot 3](screenshots/goto%20epic.png)
 
 ---
 
@@ -70,13 +81,13 @@ Create at least six Stories under the Epic, estimate each with 1, 2, or 3 story 
 
 #### Screenshot 4 — Backlog showing the Epic and at least six Stories under it
 
-Add your screenshot here.
+![Screenshot 4](screenshots/goto--story.png)
 
 ---
 
 #### Screenshot 5 — One Story opened showing its Story Points and acceptance criteria filled in
 
-Add your screenshot here.
+![Screenshot 5](screenshots/Story%20and%20accept.png)
 
 ---
 
@@ -90,7 +101,7 @@ Confirm the Story Points (1, 2, or 3) for each Story and record brief reasoning 
 
 #### Screenshot 6 — Backlog showing Story Points visible, or two or three Stories opened showing their points
 
-Add your screenshot here.
+![Screenshot 6](screenshots/Storiess.png)
 
 ---
 
@@ -98,7 +109,32 @@ Add your screenshot here.
 
 For each story, explain in one or two lines why it is a 1, 2, or 3 (mention any debate, even in Solo Mode).
 
-Write your answer here.
+S1 – Hero Tagline (1 point):
+This only involves changing the existing heading, so it is a small and straightforward task.
+
+S2 – Button Colour (1 point):
+The task only requires updating the button colour using CSS. Although I initially considered giving it 2 points because there are multiple buttons, I kept it at 1 point since the change itself is simple.
+
+S3 – Job Card Typography (2 points):
+This requires updating the font size and font weight and then checking that the changes do not affect the layout on different screen sizes. Because it involves both styling and responsive testing, I estimated it at 2 points.
+
+S4 – REMOTE Badge (2 points):
+This involves creating a new badge and making sure it appears only on jobs that are remote. Since it requires some additional logic rather than just changing text, I estimated it at 2 points.
+
+S5 – Posted On Date (1 point):
+This is simply adding the posted date as text, without requiring any additional logic, so I estimated it at 1 point.
+
+S6 – Search Labels (2 points):
+Several labels and placeholders need to be changed, followed by testing to make sure everything works correctly. Since multiple elements are involved, I estimated it at 2 points.
+
+S7 – Job Detail “Apply Now” Button (1 point):
+This only requires adding an “Apply Now” button with an email address or placeholder link. Since there is no complex functionality involved, I estimated it at 1 point.
+
+S8 – Footer Trust Links (1 point):
+This requires adding two simple footer links, “About” and “Contact.” It is a small HTML change without any complex functionality, so I estimated it at 1 point.
+
+Total backlog points across all 8 stories:
+1 + 1 + 2 + 2 + 1 + 2 + 1 + 1 = 11 points
 
 ---
 
@@ -112,13 +148,13 @@ Create Sprint 1, move three or four Stories into it (approximately 3–6 points)
 
 #### Screenshot 7 — Sprint 1 with the selected Stories inside it
 
-Add your screenshot here.
+![Screenshot 7](screenshots/sprint%20plus%20stories.png)
 
 ---
 
 #### Screenshot 8 — One Story showing the Sub-tasks created
 
-Add your screenshot here.
+![Screenshot 8](screenshots/shows%20one.png)
 
 ---
 
@@ -132,7 +168,7 @@ Open the Burndown Chart and confirm it exists for Sprint 1. It is acceptable if 
 
 #### Screenshot 9 — Burndown Chart page opened, even if empty
 
-Add your screenshot here.
+![Screesnhot 9](screenshots/burn%20it%20down.png)
 
 ---
 
@@ -146,19 +182,19 @@ Implement one small UI-only Story from Sprint 1, commit it, deploy it live, and 
 
 #### Screenshot 10 — Jira board showing the Story moved to Done
 
-Add your screenshot here.
+![Screenshot 10](screenshots/Board-done.png)
 
 ---
 
 #### Screenshot 11 — Git commit output
 
-Add your screenshot here.
+![Screenshot 11](screenshots/commit%20goto.png)
 
 ---
 
 #### Screenshot 12 — Live URL in the browser showing the UI change, with the URL visible
 
-Add your screenshot here.
+![Screenshot 12](screenshots/goto-EC2.png)
 
 ---
 
@@ -172,7 +208,7 @@ Add a retro comment covering what went well, what to improve, one Scrum pillar o
 
 #### Screenshot 13 — Jira retro comment visible
 
-Add your screenshot here.
+![Screenshot 13](screenshots/Retro-epic.png)
 
 ---
 
@@ -188,13 +224,13 @@ Publish a LinkedIn post about what you delivered, including your live URL, three
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/ayomikunphilip_devops-aws-ec2-share-7491943116460068864-uUM-/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs`
 
 ---
 
 #### Screenshot 14 — Published LinkedIn post
 
-Add your screenshot here.
+![Screenshot 14](screenshots/Goto%20Linked.png)
 
 ---
 
