@@ -425,8 +425,8 @@ https://www.linkedin.com/posts/ayomikunphilip_im-excited-to-share-that-i-began-t
 
 ## 10. Proof of Work
 
-- LinkedIn Post URL: **https://www.linkedin.com/posts/ayomikunphilip_im-excited-to-share-that-i-began-the-devops-ugcPost-7477203295124676608-hG-R/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs**  
-- Blog / Medium : **https://medium.com/@ayomikunajayi98/from-microbiology-to-building-intelligent-cloud-systems-the-inspiring-journey-of-ayomikun-philip-9c6bf52af857?sharedUserId=ayomikunajayi98**  
+- LinkedIn Post URL: https://www.linkedin.com/posts/ayomikunphilip_im-excited-to-share-that-i-began-the-devops-ugcPost-7477203295124676608-hG-R/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs
+- Blog / Medium : https://medium.com/@ayomikunajayi98/from-microbiology-to-building-intelligent-cloud-systems-the-inspiring-journey-of-ayomikun-philip-9c6bf52af857?sharedUserId=ayomikunajayi98 
 
 ---
 
