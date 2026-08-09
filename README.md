@@ -82,8 +82,8 @@ Week 03 → Linux & Bash for DevOps
 Week 04 → Git & GitHub 
 [![Week 04 – Git](./badges/week-04.svg)](./week-04-github/) 
 
-<!-- Week 05 → DevOps Lifecycle & Agile -->
-<!-- [![Week 05 – Agile](./badges/week-05.svg)](./week-05-devops-lifecycle/) -->
+Week 05 → DevOps Lifecycle & Agile
+[![Week 05 – Agile](./badges/week-05.svg)](./week-05-devops-lifecycle/)
 
 <!-- Week 06 → AWS Cloud -->
 <!-- [![Week 06 – AWS](./badges/week-06.svg)](./week-06-aws-cloud/) -->
@@ -135,8 +135,8 @@ Week 04 → Git & GitHub
 | 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/ayomikunphilip_dmibypravinmishra-agenticai-claudecode-ugcPost-7481159868926758913-c89N/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs | https://medium.com/@ayomikunajayi98/reflection-week-2-d707a12ed387 |
 | 03 | Linux & Bash for DevOps | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/ayomikunphilip_dmibypravinmishra-devops-agenticai-ugcPost-7484325985987903488-kde9/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs | https://medium.com/@ayomikunajayi98/i-stopped-treating-ai-like-a-chatbot-eec765b4763e |
 | 04 | Git & GitHub | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/ayomikunphilip_devops-git-github-share-7485488259242852352-t1DD/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs | https://medium.com/@ayomikunajayi98/beyond-git-commit-building-safer-code-reviews-with-git-hooks-and-agentic-ai-cc3f45675959?sharedUserId=ayomikunajayi98 |
-| 05 | DevOps Lifecycle & Agile | 🔄 In Progress | 🔄 In Progress | https://www.linkedin.com/posts/ayomikunphilip_dmi-devops-micro-internship-with-agentic-share-7487793567248334849-lvBe/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs | https://medium.com/@ayomikunajayi98/catch-up-week-strengthening-my-devops-foundation-before-the-next-chapter-81116cd860a7 |
-| 06 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
+| 05 | DevOps Lifecycle & Agile | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/ayomikunphilip_dmi-devops-micro-internship-with-agentic-share-7487793567248334849-lvBe/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs | https://medium.com/@ayomikunajayi98/catch-up-week-strengthening-my-devops-foundation-before-the-next-chapter-81116cd860a7 |
+| 06 | AWS Cloud | 🔄 In Progress | 🔄 In Progress | — | — |
 | 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
 | 09 | Ansible | ⬜ Not Started | ⏳ Pending | — | — |
