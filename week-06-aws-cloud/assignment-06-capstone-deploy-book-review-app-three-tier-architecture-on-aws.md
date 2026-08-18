@@ -20,7 +20,7 @@ Create an architecture diagram showing the custom VPC (10.0.0.0/16), the six sub
 
 #### Diagram image or link
 
-Add your diagram image or link here.
+![diag](screenshots/the-arch-diag.png)
 
 ---
 
@@ -34,13 +34,21 @@ Record the AWS Region used and list every AWS service used across networking, co
 
 **Region:**
 
-Write your answer here.
+us-east-1 (N. Virginia)
 
 ---
 
 **Services:**
 
-Write your answer here.
+VPC (Virtual Private Cloud)
+Subnets (6 total: 2 public, 4 private)
+Internet Gateway
+Route Tables (Public + Private)
+EC2 Instances (2: Web Tier + App Tier)
+Application Load Balancer (2: Public + Internal)
+Security Groups (5: web-alb-sg, web-sg, internal-alb-sg, app-sg, db-sg)
+RDS MySQL (Single-AZ)
+NAT Gateway (temporary, for package installation — deleted)
 
 ---
 
@@ -56,7 +64,7 @@ Confirm the Book Review App loads through the public ALB DNS name.
 
 Paste your public ALB DNS name here:
 
-`Add your URL here`
+`bookreview-public-alb-636138120.us-east-1.elb.amazonaws.com`
 
 ---
 
@@ -70,38 +78,37 @@ Capture visual proof of every tier and load balancer.
 
 #### Web EC2
 
-Add your screenshot here.
+![Web EC2](screenshots/Web%20EC2.png)
 
 ---
 
 #### App EC2
 
-Add your screenshot here.
+![APP EC2](screenshots/APP%20EC2.png)
 
 ---
 
 #### Public ALB
 
-Add your screenshot here.
+![Pic](screenshots/Public%20ALB.png)
 
 ---
 
 #### Internal ALB
 
-Add your screenshot here.
+![Internal ALB](screenshots/int%20int.png)
 
 ---
 
 #### RDS + Replica
 
-Add your screenshot here.
+![RDS + REPLICA](screenshots/RDS%20+%20REPLICA.png)
 
 ---
 
 #### App UI proof
 
-Add your screenshot here.
-
+![PIC](screenshots/it%20worked.png)
 ---
 
 # Task 5 — Summary
@@ -114,19 +121,35 @@ Summarize what worked in the final deployment, the issues encountered and how ea
 
 **What worked:**
 
-Write your answer here.
+Three-tier architecture successfully isolated Web, App, and Database tiers across two AZs using security groups and subnets
+Both public and internal load balancers correctly distributed traffic and maintained target health
+End-to-end traffic flow validated: Internet → Public ALB → Nginx reverse proxy → Internal ALB → Express backend → RDS MySQL
+RDS single-AZ deployment kept costs within free-tier budget while maintaining database availability
+EC2 instances in private subnets verified secure isolation without public IP exposure
 
 ---
 
 **Issues + fixes:**
 
-Write your answer here.
+1. App Tier outbound connectivity (Session Manager hanging) — Fixed by creating three VPC Interface Endpoints (ssm, ssmmessages, ec2messages) to enable private, secure access without internet gateway
+2. NAT Gateway temporary internet access — Created temporary NAT Gateway in public subnet with route in private-rt for package installation; deleted post-installation to avoid Elastic IP charges and comply with assignment rules
+3. Security group port 80 rule confusion — Initially tried to test direct public IP access; realized web-sg correctly only allows port 80 from web-alb-sg, not from the internet — fixed by testing through the public ALB instead
+4. Frontend API routing issue (/api/api/books) — Backend .env had wrong ALLOWED_ORIGINS pointing only to localhost, blocking cross-origin requests; added public ALB DNS to CORS whitelist. Later discovered hardcoded /api/ prefix in page.js that doubled the path — fixed by removing the redundant prefix
+5. Internal ALB security group missing port 80 rule — internal-alb-sg initially only had port 3001 rule; added HTTP port 80 inbound from web-sg to allow Nginx reverse proxy to reach it
+6. Nginx proxy path routing — Added location /api/ block to forward requests to internal ALB; updated frontend .env.local to use relative path /api instead of hardcoded internal ALB URL so browser could reach the app
 
 ---
 
 **Tools/sources used:**
 
-Write your answer here.
+AWS Console (VPC, EC2, RDS, Load Balancers, Security Groups)
+Claude AI (architecture guidance, debugging, code fixes)
+Vim (config file editing on EC2)
+Session Manager (secure terminal access to private instances)
+Browser DevTools (Network tab for diagnosing API errors)
+Git (cloning app repository)
+npm (package management for Node.js/Next.js)
+pm2 (process management for persistent app running)
 
 ---
 
@@ -142,13 +165,13 @@ Publish a LinkedIn post sharing the capstone deployment, including the public AL
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/ayomikunphilip_aws-devops-cloudcomputing-activity-7495426997729513473-lIla?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs`
 
 ---
 
 #### Screenshot of LinkedIn post
 
-Add your screenshot here.
+![linkedIn](screenshots/Three-tier-link.png)
 
 ---
 
