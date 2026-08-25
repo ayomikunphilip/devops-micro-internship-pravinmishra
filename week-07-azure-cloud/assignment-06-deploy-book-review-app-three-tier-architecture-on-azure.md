@@ -20,13 +20,28 @@ Create an architecture diagram and implementation plan identifying the presentat
 
 #### Screenshot 1 — Architecture diagram showing the public entry point, three tiers, network boundaries, and traffic flow
 
-Add your screenshot here.
+![Screenshot 1](screenshots/A6-S1.png)
 
 ---
 
 #### Screenshot 2 — Written architecture assumptions and selected Azure services
+![Screenshot 2](screenshots/A6-S2.png) Region and naming: All resources are deployed in a single Azure region for simplicity and to avoid cross-region latency and cost. Resource and subnet names follow a consistent <tier>-bookreview convention so the role of each component is clear from its name alone.
 
-Add your screenshot here.
+Public entry point: An Azure Standard Load Balancer (public) is the only resource in the architecture that accepts traffic from the internet. It forwards HTTP traffic to the web tier VM on port 80.
+
+Web tier: A single Ubuntu VM runs Nginx in front of a Next.js frontend. Nginx serves the site directly and reverse-proxies any request under /api/ to the application tier over the private network. This is how the web tier sends application requests to the internal application-tier endpoint, since the app tier has no public IP and the browser cannot reach it directly.
+
+Application tier: A single Ubuntu VM runs the Node.js/Express backend on port 3001. It has no public IP and only accepts inbound traffic from the web subnet, on the API port and SSH (for management via jump host).
+
+Database tier: Azure Database for MySQL Flexible Server, configured with private access (VNet integration). Public network access is disabled. Only the application subnet can reach it.
+
+Secrets: The database admin password and the backend's JWT secret are generated and stored in Azure Key Vault, then pulled onto the VMs via the Azure CLI when writing environment files. Neither value is typed by hand into a file that gets screenshotted, or committed to source control.
+
+Monitoring: A single Log Analytics Workspace collects diagnostics from both VMs, the Load Balancer, the Key Vault, and the MySQL server. One alert rule monitors VM CPU usage.
+
+Availability: Each tier runs a single VM (Standard_B1s) rather than a scale set, due to the cost constraints of a student/free-tier subscription. This is a deliberate, documented trade-off rather than an oversight, and the Task 8 availability test is scoped accordingly — it demonstrates that the Load Balancer correctly detects and reacts to a VM outage, not zero-downtime failover.
+
+Backup and recovery: Azure Database for MySQL Flexible Server's automatic daily backups (7-day retention by default) are used as-is, with no additional configuration required.
 
 ---
 
@@ -40,19 +55,19 @@ Create a dedicated Resource Group and VNet with separate subnets for the web, ap
 
 #### Screenshot 3 — Resource Group overview showing the assignment resources
 
-Add your screenshot here.
+![Screenshot 3](screenshots/A6-S3.png)
 
 ---
 
 #### Screenshot 4 — VNet overview showing the address space and all required subnets
 
-Add your screenshot here.
+![Screenshot 4](screenshots/A6-S4.png)
 
 ---
 
 #### Screenshot 5 — Route-table or Private DNS evidence where applicable
 
-Add your screenshot here.
+![Screenshot 5](screenshots/A6-S5.png)
 
 ---
 
@@ -66,13 +81,13 @@ Apply least-privilege NSG rules so traffic flows Internet → public entry point
 
 #### Screenshot 6 — NSG rules proving least-privilege access between the tiers
 
-Add your screenshot here.
+![Screenshot 6a](screenshots/A6-S6a.png)  ![Screenshot 6b](screenshots/A6-S6b.png)
 
 ---
 
 #### Screenshot 7 — Key Vault or approved secret-management configuration (without displaying secret values)
 
-Add your screenshot here.
+![Screenshot 7](screenshots/A6-S7.png)
 
 ---
 
@@ -86,13 +101,13 @@ Deploy the Book Review App presentation layer on the approved web-tier compute s
 
 #### Screenshot 8 — Web-tier compute overview showing subnet and availability configuration
 
-Add your screenshot here.
+![Screenshot 8](screenshots/A6-S8.png)
 
 ---
 
 #### Screenshot 9 — Terminal or service output proving the presentation layer is running
 
-Add your screenshot here.
+![Screenshot 9](screenshots/A6-S9.png)
 
 ---
 
@@ -106,19 +121,19 @@ Deploy the Book Review App backend privately in the application subnet, configur
 
 #### Screenshot 10 — Application-tier compute overview showing private subnet placement
 
-Add your screenshot here.
+![Screenshot 10](screenshots/A6-S10.png)
 
 ---
 
 #### Screenshot 11 — Backend process, service, or listening-port evidence
 
-Add your screenshot here.
+![Screenshot 11](screenshots/A6-S11.png)
 
 ---
 
 #### Screenshot 12 — Internal health-check or API response (without exposing secrets)
 
-Add your screenshot here.
+![Screenshot 12](screenshots/A6-S12.png)
 
 ---
 
@@ -132,19 +147,19 @@ Create a private Azure managed database (public access disabled), with availabil
 
 #### Screenshot 13 — Database overview showing private connectivity and public access disabled
 
-Add your screenshot here.
+![Screenshot 13](screenshots/A6-S13.png)
 
 ---
 
 #### Screenshot 14 — Availability, backup, and retention configuration
 
-Add your screenshot here.
+![Screenshot 14](screenshots/A6-S14.png)
 
 ---
 
 #### Screenshot 15 — Successful schema or connectivity verification (without exposing credentials)
 
-Add your screenshot here.
+![Screenshot 15](screenshots/A6-S15.png)
 
 ---
 
@@ -158,19 +173,19 @@ Configure the approved public entry service with health probes and backend pools
 
 #### Screenshot 16 — Public entry service showing listener, frontend endpoint, and healthy web targets
 
-Add your screenshot here.
+![Screenshot 16a](screenshots/A6-S16a.png)  ![Screenshot 16a](screenshots/A6-S16b.png)  ![Screenshot 16c](screenshots/A6-S16c.png)  ![Screenshot 16d](screenshots/A6-S16d.png)
 
 ---
 
 #### Screenshot 17 — Internal application-tier load-balancing or routing configuration where applicable
 
-Add your screenshot here.
+![Screenshot 17](screenshots/A6-S17.png)
 
 ---
 
 #### Screenshot 18 — Azure Monitor, diagnostic settings, logs, metrics, or alert evidence
 
-Add your screenshot here.
+![Screenshot 18a](screenshots/A6-S18a.png)   ![Screenshot 18b](screenshots/A6-S18b.png)
 
 ---
 
@@ -184,25 +199,25 @@ Confirm the Book Review App works end to end through the public endpoint, with a
 
 #### Screenshot 19 — Browser showing the Book Review App through the public endpoint
 
-Add your screenshot here.
+![Screenshot 19](screenshots/A6-S19.png)
 
 ---
 
 #### Screenshot 20 — Proof of successful database-backed read and write operations
 
-Add your screenshot here.
+![Screenshot 20](screenshots/A6-S20.png)
 
 ---
 
 #### Screenshot 21 — Evidence that private tiers are not publicly accessible
 
-Add your screenshot here.
+![Screenshot 21](screenshots/A6-S21.png)
 
 ---
 
 #### Screenshot 22 — Availability-test and healthy-target evidence
 
-Add your screenshot here.
+![Screenshot 22a](screenshots/A6-S22a.png)  ![Screenshot 22b](screenshots/A6-S22b.png)  ![Screenshot 22c](screenshots/A6-S22c.png) 
 
 ---
 
@@ -210,7 +225,7 @@ Add your screenshot here.
 
 Paste your public endpoint URL here:
 
-`Add your URL here`
+`http://20.87.241.53`
 
 ---
 
@@ -218,7 +233,24 @@ Paste your public endpoint URL here:
 
 Summarize what worked, issues encountered and how they were fixed, and the availability/security/secrets/monitoring/backup choices made.
 
-Write your answer here.
+What worked: Full three-tier deployment completed and verified end to end. Public Load Balancer routes to Nginx (web tier), which proxies /api/ requests privately to the app tier, which connects to a private MySQL Flexible Server. Registration, login, book browsing, and reviews all work through the public IP. Secrets live in Key Vault, and private tier isolation was confirmed from an external machine.
+
+Issues encountered and fixes:
+
+MySQL auth failure (ER_ACCESS_DENIED_ERROR): Azure's provisioned password hash didn't match what the driver expected. Fixed with ALTER USER to force a clean hash regeneration.
+Load Balancer public IP unreachable despite healthy backend: The NSG only allowed the AzureLoadBalancer source tag, which covers health probes but not real client traffic, since a Standard LB preserves the original client IP. Added a rule allowing port 80 from Internet/Any.
+Registration failing (connection refused to localhost:3001): The frontend had a hardcoded fallback URL that activated because an empty environment variable is falsy in JavaScript. Removed the fallback and rebuilt.
+Double API prefix (404 on homepage): Two files handled the /api prefix inconsistently. Standardized the environment variable to /api and fixed the redundant hardcode.
+
+Availability: Single VM per tier (Standard_B1s), a documented cost tradeoff. The availability test confirmed the Load Balancer correctly detects and recovers from a VM reboot, not zero downtime.
+
+Security: NSGs follow least privilege. SSH to the web tier is IP restricted. App and database tiers have no public IPs. Default DenyAllInbound blocks anything not explicitly allowed.
+
+Secrets: Database password and JWT secret generated and stored in Key Vault, pulled via Azure CLI when writing env files, never typed or committed in plaintext.
+
+Monitoring: Log Analytics Workspace (law-bookreview) created. Diagnostic settings successfully configured for the Load Balancer, Key Vault, and MySQL server. VM guest diagnostics and the CPU alert rule were skipped due to the deprecated Azure Diagnostics extension and inconsistent Azure Monitor Agent enrollment in the portal. Platform level VM metrics remain visible via each VM's Monitor tab.
+
+Backup: MySQL Flexible Server takes automatic daily backups with 7 day retention by default, confirmed in the portal.
 
 ---
 
