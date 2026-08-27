@@ -136,7 +136,11 @@ Pick one WARN or FAIL finding (or deliberately open an NSG rule to port 22 from 
 
 Compare this assignment to the AWS audit you built in Week 6: which finding categories map to each other across the two clouds, and what stayed exactly the same about the workflow even though the `az`/`aws` commands are completely different?
 
-Add your answer here
+Both audits ask the same four questions, just through different CLI verbs. Who can reach the network maps from AWS Security Group rules open on 22/3389 to Azure NSG rules open on 22/3389. Public data exposure maps from an S3 bucket's public access setting to a Storage Account's allowBlobPublicAccess. Encryption at rest maps from RDS storage encryption to VM OS disk encryption. And public database access maps from RDS's PubliclyAccessible flag to the MySQL Flexible Server's publicNetworkAccess setting.
+
+What stayed identical across both is the workflow itself, not the commands. Both scripts followed the same Agentic Loop: gather evidence with read-only CLI calls, let Claude analyze and explain risk, let a human run any fix, then verify again with the same script. Both used only read-only verbs like list/show/describe, never create, update, or delete. Both CLAUDE.md files explicitly named the destructive commands to avoid rather than giving a vague warning, and both barred Claude from ever executing a remediation itself, even one it drafted. Both scripts used distinct exit codes for HEALTHY, WARN, and FAIL instead of a single pass/fail flag. And in both cases, planning the exact CLI commands with Claude before writing any Bash caught naming issues early, like the AWS RDS legacy server versus Azure's flexible-server.
+
+So the cloud vendor and its command syntax changed completely, but the audit discipline, what gets checked, who's allowed to act, and how severity gets communicated, stayed exactly the same.
 
 ---
 
