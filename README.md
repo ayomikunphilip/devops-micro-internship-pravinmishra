@@ -138,7 +138,7 @@ Week 07 → Azure Cloud
 | 05 | DevOps Lifecycle & Agile | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/ayomikunphilip_dmi-devops-micro-internship-with-agentic-share-7487793567248334849-lvBe/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs | https://medium.com/@ayomikunajayi98/catch-up-week-strengthening-my-devops-foundation-before-the-next-chapter-81116cd860a7 |
 | 06 | AWS Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/ayomikunphilip_aws-devops-cloudcomputing-activity-7495426997729513473-lIla?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs | https://medium.com/@ayomikunajayi98/i-deployed-a-three-tier-app-on-aws-and-the-real-lesson-wasnt-the-architecture-447adf825b5e |
 | 07 | Azure Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/ayomikunphilip_dmibypravinmishra-azure-devops-activity-7498472787007774720-AaxG?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs | https://medium.com/@ayomikunajayi98/it-worked-but-was-it-safe-auditing-my-azure-deployment-with-agentic-ai-73d7d62eb80b |
-| 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
+| 08 | Terraform | 🔄 In Progress | 🔄 In Progress | — | — |
 | 09 | Ansible | ⬜ Not Started | ⏳ Pending | — | — |
 | 10 | Azure DevOps (CI/CD) | ⬜ Not Started | ⏳ Pending | — | — |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
