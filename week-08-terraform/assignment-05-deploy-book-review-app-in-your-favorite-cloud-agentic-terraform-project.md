@@ -31,7 +31,7 @@ Prepare the Book Review App project and configure the provided Claude Code Agent
 
 Add a screenshot of the project `CLAUDE.md` showing the three-tier architecture, security boundaries, Terraform requirements, and human-approval rules.
 
-Add your screenshot here.
+![Screenshot 1a](screenshots/A5-S1a.png)  ![Screenshot 1b](screenshots/A5-S1b.png)
 
 ---
 
@@ -39,7 +39,7 @@ Add your screenshot here.
 
 Add a screenshot showing the Terraform Engineer subagent configuration.
 
-Add your screenshot here.
+![Screenshot 2](screenshots/A5-S2.png)
 
 ---
 
@@ -47,7 +47,7 @@ Add your screenshot here.
 
 Add a screenshot showing the Architecture and Security Reviewer subagent configuration.
 
-Add your screenshot here.
+![Screenshot 3](screenshots/A5-S3.png)
 
 ---
 
@@ -55,7 +55,7 @@ Add your screenshot here.
 
 Add a screenshot showing Terraform MCP connected and available.
 
-Add your screenshot here.
+![Screenshot 4](screenshots/A5-S4.png)
 
 ---
 
@@ -63,7 +63,7 @@ Add your screenshot here.
 
 Add a screenshot showing the configured Claude Code validation hooks.
 
-Add your screenshot here.
+![Screenshot 5](screenshots/A5-S5.png)
 
 ---
 
@@ -90,7 +90,7 @@ The diagram must show:
 
 ## Architecture Diagram
 
-Add the completed architecture diagram here.
+![Architecture Diagram](screenshots/book-review-architecture.jpg)
 
 ---
 
@@ -106,7 +106,7 @@ Create the modular Terraform project and implement the network and security laye
 
 Add a screenshot showing the modular Terraform project structure.
 
-Add your screenshot here.
+![Screenshot 6](screenshots/A5-S6.png)
 
 ---
 
@@ -114,7 +114,7 @@ Add your screenshot here.
 
 Add a screenshot showing the six-subnet architecture across two availability locations.
 
-Add your screenshot here.
+![Screenshot 7](screenshots/A5-S7.png)
 
 ---
 
@@ -122,7 +122,7 @@ Add your screenshot here.
 
 Add a screenshot showing the public and private tier separation, including routing and security boundaries.
 
-Add your screenshot here.
+![Screenshot 8](screenshots/A5-S8.png)
 
 ---
 
