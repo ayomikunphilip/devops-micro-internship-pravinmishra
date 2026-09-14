@@ -24,19 +24,19 @@ This project will use the Git repository and Ansible controller prepared in Assi
 
 #### Screenshot 1 — Terminal showing the complete `ansible-adhoc-lab` project structure
 
-Add your screenshot here.
+![Screenshot 1](screenshots/A2-S1.png)
 
 ---
 
 #### Screenshot 2 — Terminal showing `git status --short` with the new project files and updated `.gitignore`
 
-Add your screenshot here.
+![Screenshot 2](screenshots/A2-S2.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Created the project structure and prepared the Terraform, Ansible inventory, and documentation files.
 
 ---
 
@@ -57,25 +57,25 @@ Do not configure both providers for this assignment.
 
 #### Screenshot 3 — Terraform configuration showing the three or four server roles and the `for_each` or `count` implementation
 
-Add your screenshot here.
+![Screenshot 3](screenshots/A2-S3.png)
 
 ---
 
 #### Screenshot 4 — Terraform configuration showing SSH restricted to the controller IP and HTTP allowed only for web hosts
 
-Add your screenshot here.
+![Screenshot 4](screenshots/A2-S4.png)
 
 ---
 
 #### Screenshot 5 — Terraform output configuration showing how public IP addresses are associated with the server roles
 
-Add your screenshot here.
+![Screenshot 5](screenshots/A2-S5.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Created the Terraform configuration to provision the required Ubuntu servers with SSH access and role-based networking rules.
 
 ---
 
@@ -89,25 +89,25 @@ Initialize and validate the Terraform configuration, review the execution plan, 
 
 #### Screenshot 6 — Final `terraform apply` output showing `Apply complete`
 
-Add your screenshot here.
+![Screenshot 6](screenshots/A2-S6.png)
 
 ---
 
 #### Screenshot 7 — `terraform output public_ips` showing the role-to-IP mapping for all three or four VMs
 
-Add your screenshot here.
+![Screenshot 7](screenshots/A2-S7.png)
 
 ---
 
 #### Screenshot 8 — Azure Portal or AWS Management Console showing all three or four VMs in the `Running` state, with their role-based names visible
 
-Add your screenshot here.
+![Screenshot 8](screenshots/A2-S8.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Initialized, validated, and applied the Terraform configuration successfully. The public IP addresses were retrieved for each server.
 
 ---
 
@@ -121,13 +121,13 @@ Verify that each managed VM can be accessed from the Ansible controller using SS
 
 #### Screenshot 9 — Terminal showing successful SSH hostname output from all VMs
 
-Add your screenshot here.
+![Screenshot 9](screenshots/A2-S9.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Verified SSH key-based access from the Ansible controller to all managed servers.
 
 ---
 
@@ -143,19 +143,19 @@ The inventory allows Ansible to run commands against all servers, or only specif
 
 #### Screenshot 10 — `inventory.ini` showing the `web`, `app`, and `db` groups
 
-Add your screenshot here.
+![Screenshot 10](screenshots/A2-S10.png)
 
 ---
 
 #### Screenshot 11 — Output of `ansible-inventory -i inventory.ini --graph`
 
-Add your screenshot here.
+![Screenshot 11](screenshots/A2-S11.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Created a custom Ansible inventory and grouped the servers into web, app, and db based on their roles.
 
 ---
 
@@ -171,43 +171,43 @@ This task proves that the inventory is working and that Ansible can control mult
 
 #### Screenshot 12 — Output of `ansible all -i inventory.ini -m ping`
 
-Add your screenshot here.
+![Screenshot 12](screenshots/A2-S12.png)
 
 ---
 
 #### Screenshot 13 — Output of `ansible all -i inventory.ini -m command -a "uptime"`
 
-Add your screenshot here.
+![Screenshot 13](screenshots/A2-S13.png)
 
 ---
 
 #### Screenshot 14 — Output of `ansible web -i inventory.ini -m apt -a "name=nginx state=present update_cache=yes" --become`
 
-Add your screenshot here.
+![Screenshot 14](screenshots/A2-S14.png)
 
 ---
 
 #### Screenshot 15 — Output of `ansible web -i inventory.ini -m service -a "name=nginx state=started enabled=yes" --become`
 
-Add your screenshot here.
+![Screenshot 15](screenshots/A2-S15.png)
 
 ---
 
 #### Screenshot 16 — Output of `ansible all -i inventory.ini -m apt -a "name=htop state=present update_cache=yes" --become`
 
-Add your screenshot here.
+![Screenshot 1](screenshots/A2-S1.png)
 
 ---
 
 #### Screenshot 17 — Output of `ansible web -i inventory.ini -m command -a "systemctl is-active nginx"`
 
-Add your screenshot here.
+![Screenshot 17](screenshots/A2-S17.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Used Ansible ad-hoc commands to test connectivity, check uptime, install packages, manage Nginx, and verify that Nginx was running.
 
 ---
 
@@ -219,13 +219,13 @@ Add your task notes here.
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/ayomikunphilip_devops-terraform-aws-activity-7505174758154723328-DdH1?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs`
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+![Screenshot LinkedIn](screenshots/Lkd_assignment_2.png)
 
 ---
 
@@ -235,37 +235,37 @@ Answer the following in your own words:
 
 **1. What is the purpose of an Ansible inventory file?**
 
-Add your answer here.
+It tells Ansible which servers to manage and how they are grouped.
 
 ---
 
 **2. What is the difference between the `web`, `app`, and `db` groups in your inventory?**
 
-Add your answer here.
+They group servers based on their roles. web handles web services, app handles application services, and db is for database services.
 
 ---
 
 **3. What does the Ansible `ping` module verify?**
 
-Add your answer here.
+It verifies that Ansible can connect to the server and execute commands successfully.
 
 ---
 
 **4. Why do package installation commands require `--become`?**
 
-Add your answer here.
+Because installing packages usually requires administrator or root privileges.
 
 ---
 
 **5. When would you use an ad-hoc command instead of a playbook?**
 
-Add your answer here.
+For quick, one-time tasks such as checking a server, installing a package, or starting a service.
 
 ---
 
 **6. What is one challenge you faced while setting up SSH or inventory, and how did you fix it?**
 
-Add your answer here.
+One challenge was ensuring the correct SSH key and server details were used in the inventory. I fixed it by checking the SSH configuration and correcting the inventory details.
 
 ---
 
