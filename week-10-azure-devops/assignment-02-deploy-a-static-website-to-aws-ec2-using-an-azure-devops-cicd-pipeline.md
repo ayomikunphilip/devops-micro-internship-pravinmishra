@@ -36,7 +36,7 @@ Add a screenshot of Azure Repos showing:
 * Project files
 * `index.html`
 
-Add your screenshot here.
+![Screenshot 1](screenshots/a2-s1.png)
 
 ---
 
@@ -65,7 +65,7 @@ Add a screenshot of the saved SSH Service Connection **Overview** page showing:
 * Service Connection name
 * SSH connection type
 
-Add your screenshot here.
+![Screenshot 2](screenshots/a2-s2.png)
 
 > Do not expose a password, SSH private key, passphrase, or another credential.
 
@@ -91,7 +91,7 @@ Add a screenshot of `azure-pipelines.yml` open in the Azure Repos editor showing
 * `CopyFilesOverSSH@0` task
 * `SSH@0` verification task
 
-Add your screenshot here.
+![Screenshot 3](screenshots/a2-s3.png)
 
 > Ensure that no password, SSH private key, PAT, or AWS credential is visible.
 
@@ -115,7 +115,7 @@ Add a screenshot of the successful pipeline run and log summary showing:
 * Remote-verification step completed
 * Your Full Name visible in the pipeline output
 
-Add your screenshot here.
+![Screenshot 4](screenshots/a2-s4.png)
 
 ---
 
@@ -136,15 +136,15 @@ Add a browser screenshot showing:
 * Your Full Name
 * Updated website content after the automatic deployment
 
-Add your screenshot here.
+![Screenshot 5](screenshots/a2-s5.png)
 
 ## Final Website URL
 
-`http://<target-vm-public-ip>`
+`http://13.221.119.128`
 
 Replace the placeholder with your actual website URL:
 
-[Paste your final website URL here]
+http://13.221.119.128
 
 ---
 
@@ -152,7 +152,13 @@ Replace the placeholder with your actual website URL:
 
 Write a short summary of the completed CI/CD workflow.
 
-[Write your summary here.]
+I built an automated pipeline that deploys a static website to a live server every time code is pushed to main. In Azure DevOps I created a private project, Azure-Static-Website-CICD, and imported the static website repo into Azure Repos so the pipeline had real Git history to build from.
+
+For the server, I used Terraform to create an Ubuntu EC2 VM on AWS, with SSH allowed only from my IP and the build agent, and HTTP open to everyone. Ansible then installed and started Nginx on that VM, set the file ownership for /var/www/html, and turned on password login for the ubuntu user so Azure DevOps could connect.
+
+The jobs run on a self-hosted agent on an Azure VM. Ansible installed it and registered it in SelfHostedPool, with the access token kept in an encrypted Ansible Vault file instead of plain text. An SSH service connection, ubuntu-nginx-ssh, stores the VM's login details so no credentials appear in the pipeline code.
+
+The pipeline is defined in azure-pipelines.yml. It triggers on commits to main, checks out the repo, copies the site files to /var/www/html over SSH, and runs ls -la on the server to prove the files arrived. The run finished with green checks on every step, and the website is live at http://13.221.119.128.
 
 ---
 
@@ -167,11 +173,11 @@ Add a screenshot of your LinkedIn post containing:
 * Three to five lines describing the CI/CD workflow
 * A screenshot of the successful pipeline or deployed website
 
-Add your screenshot here.
+![Screenshot](screenshots/a2-linkedin.png)
 
 ## LinkedIn Post URL
 
-[Paste your public LinkedIn post URL here]
+https://www.linkedin.com/posts/ayomikunphilip_devops-cicd-azuredevops-ugcPost-7513819655375937536-pIi0/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs
 
 > Do not expose AWS credentials, SSH private keys, passwords, PATs, or other sensitive information.
 
