@@ -37,7 +37,7 @@ Add a screenshot of Azure Repos showing:
 * `main` branch
 * Project files
 
-Add your screenshot here.
+![Screenshot 1](screenshots/a3-s1.png)
 
 ---
 
@@ -81,7 +81,7 @@ Add a screenshot of the Azure Pipeline YAML open in the editor showing:
 * Publish stage
 * Deploy stage
 
-Add your screenshot here.
+![Screenshot 2a](screenshots/a3-s2a.png) ![Screenshot 2b](screenshots/a3-s2b.png) ![Screenshot 2c](screenshots/a3-s2c.png) ![Screenshot 2d](screenshots/a3-s2d.png)
 
 > Do not expose passwords, private keys, tokens, or cloud credentials.
 
@@ -104,7 +104,7 @@ Add a screenshot of one Azure DevOps pipeline run showing all four stages succee
 * Publish
 * Deploy
 
-Add your screenshot here.
+1[Screenshot 3](screenshots/a3-s3.png)
 
 ---
 
@@ -122,7 +122,7 @@ Add a screenshot of the pipeline SSH verification log or VM terminal showing the
 
 `/var/www/html`
 
-Add your screenshot here.
+![Screenshot 4](screenshots/a3-s4.png)
 
 ---
 
@@ -143,15 +143,15 @@ Add a browser screenshot showing:
 * Your Full Name
 * Deployment date
 
-Add your screenshot here.
+![Screenshot 5](screenshots/a3-s5.png)
 
 ## Final Application URL
 
-`http://<vm-public-ip>`
+`http://52.90.205.180`
 
 Replace the placeholder and paste your final application URL below:
 
-[Paste your final application URL here.]
+[\[Paste your final application URL here.\]](http://52.90.205.180)
 
 ---
 
@@ -159,7 +159,20 @@ Replace the placeholder and paste your final application URL below:
 
 Write a short explanation of the CI/CD workflow you created.
 
-[Write your summary here.]
+I built an automated pipeline in Azure DevOps that takes a React application from source code to a live website. Every time I commit a change to the main branch, the pipeline starts by itself and carries the change through four stages.
+
+Infrastructure: I used Terraform to create an AWS EC2 virtual machine with a public IP, an SSH key, and a security group that allows ports 22 and 80. I then used Ansible to configure two machines. On the web VM, Ansible installed Nginx, cleared the old static site, and set up Nginx to serve a React single-page application. On the self-hosted agent VM, which runs on Azure, Ansible installed Node.js and npm so it can build the app.
+
+Pipeline stages:
+
+Build: The agent installs Node.js and the app’s dependencies, then runs npm run build to turn the React source code into static files. It checks that build/index.html exists and saves the build folder as an artifact.
+Test: The agent installs the dependencies again and runs the unit tests. If any test fails, the pipeline stops and nothing reaches the server.
+Publish: The agent downloads the build artifact, checks that index.html and the static folder are present, and publishes it as a verified deployment package.
+Deploy: The pipeline uses an SSH service connection to copy the deployment package to /var/www/html on the web VM. It then confirms that index.html is there, that Nginx is running, and that the server answers with HTTP 200.
+
+Why it works well: Each stage only runs if the previous one succeeds, so a broken build or failing test never reaches the live site. Artifacts pass the build between stages safely. The SSH service connection keeps the server password out of the YAML file and out of the logs. Nginx serves the finished static files, and the try_files rule makes React routes work even when a page is refreshed.
+
+Result: After the pipeline finished, the site was live at http://52.90.205.180 with my name and date on the page. A small commit to main then started a new run automatically and updated the live site without any manual step.
 
 ---
 
@@ -174,12 +187,12 @@ Add a screenshot of your LinkedIn post showing:
 * Post text
 * At least one image or link
 
-Add your screenshot here.
+![Screenshot 6](screenshots/a3-s6.png)
 
 ## LinkedIn Post URL
 
-[Paste your public LinkedIn post URL here.]
 
+https://www.linkedin.com/posts/ayomikunphilip_devops-cicd-azuredevops-ugcPost-7515189074455007232-ybEL/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs
 > Do not expose VM passwords, tokens, private keys, cloud credentials, or other sensitive information.
 
 ---
