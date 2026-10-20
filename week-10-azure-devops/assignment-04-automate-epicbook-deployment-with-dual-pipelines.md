@@ -70,7 +70,7 @@ Add a screenshot of the Infrastructure Pipeline run showing:
 * `backend_private_ip`
 * `mysql_fqdn`
 
-Add your screenshot here.
+![Screenshot 1](screenshots/a4-s1.png)
 
 > Do not expose the MySQL password, Client Secret, Terraform state, SSH private key, or another sensitive value.
 
@@ -86,7 +86,7 @@ Add a screenshot of the Azure Portal Resource Group overview showing:
 * Azure Database for MySQL Flexible Server
 * Related EpicBook resources
 
-Add your screenshot here.
+![Screenshot 2](screenshots/a4-s2a.png) ![Screenshot 2](screenshots/a4-s2b.png) ![Screenshot 2](screenshots/a4-s2c.png)
 
 > Hide sensitive IDs, credentials, and database details.
 
@@ -162,7 +162,7 @@ Add a browser screenshot showing:
 
 The screenshot may show a product, cart, or successful order view.
 
-Add your screenshot here.
+![Screenshot 5](screenshots/a4-s5.png)
 
 > Do not expose credentials or sensitive information.
 
@@ -172,15 +172,15 @@ Add your screenshot here.
 
 ## Frontend Application URL
 
-[Paste your final EpicBook application URL here.]
+http://3.218.145.134
 
 ## Infrastructure Repository URL
 
-[Paste your Infrastructure Repository URL here.]
+https://github.com/ayomikunphilip/infra-epicbook
 
 ## Application Repository URL
 
-[Paste your Application Repository URL here.]
+https://github.com/ayomikunphilip/theepicbook
 
 ---
 
@@ -188,7 +188,9 @@ Add your screenshot here.
 
 Write a short explanation of why separate Infrastructure and Application Repositories were used.
 
-[Write your explanation here.]
+I used two repositories because infrastructure and application code have different owners, different risks and different release cycles. The infrastructure repository (infra-epicbook) holds the Terraform code that builds the network, servers and database on AWS. The application repository (theepicbook) holds the EpicBook source code and the Ansible automation that configures the servers and deploys the app.
+
+Keeping them apart means a change to the website does not touch the infrastructure, and a change to the infrastructure does not redeploy the app. Each repository has its own Git history and its own Azure DevOps pipeline, and each pipeline only gets access to the secrets it needs. For example, only the infrastructure pipeline has the AWS access keys, and only the application pipeline can download the SSH private key. This follows the least privilege principle, and it matches how infrastructure and application teams usually work in real companies.
 
 ---
 
@@ -201,7 +203,11 @@ Write a short explanation of how the following non-sensitive Terraform outputs w
 * `backend_private_ip`
 * `mysql_fqdn`
 
-[Write your explanation here.]
+After the Infrastructure Pipeline finished, I opened the Outputs stage of the successful run and read the four non-sensitive values from the "Print infrastructure" step: app_public_ip, backend_ansible_host, backend_private_ip and mysql_fqdn.
+
+I then copied them by hand into the application repository. The two public IPs (app_public_ip and backend_ansible_host) went into the Ansible inventory file (ansible/inventory/hosts.ini), under the frontend and backend groups. The backend_private_ip and mysql_fqdn went into ansible/group_vars/all.yml, where the Nginx template and the database role read them. I committed and pushed these files to the application repository.
+
+Only these four non-sensitive values were moved. No password, access key, token, SSH private key or Terraform state was copied between the repositories. The database username and password stay in an Azure DevOps secret variable group, and the SSH private key stays in Azure DevOps Secure Files.
 
 ---
 
@@ -216,11 +222,11 @@ Add a screenshot of your LinkedIn post showing:
 * Post text
 * At least one image or link
 
-Add your screenshot here.
+![Screenshot 6](screenshots/a4-s6.png)
 
 ## LinkedIn Post URL
 
-[Paste your public LinkedIn post URL here.]
+https://www.linkedin.com/posts/ayomikunphilip_devops-terraform-ansible-ugcPost-7518231980283555840-7ZZI/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs
 
 Your post must include:
 
