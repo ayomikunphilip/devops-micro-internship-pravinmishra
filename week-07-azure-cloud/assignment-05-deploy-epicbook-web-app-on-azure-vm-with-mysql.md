@@ -14,11 +14,11 @@ In this assignment, you will deploy the EpicBook web application on Azure using 
 
 ## Goal
 
-Create a VNet (10.0.0.0/16) with a public subnet (10.0.1.0/24) for the VM and a private subnet (10.0.2.0/24) for MySQL, with NSGs allowing HTTP (80)/SSH (22) publicly and MySQL (3306) only from the VM subnet, plus a Public IP and Network Interface for the VM.
+Create a Resource Group and VNet (`10.0.0.0/16`) with `public-subnet` (`10.0.1.0/24`) for the VM and a delegated `private-db-subnet` (`10.0.2.0/24`) for MySQL. Configure and associate the public and private NSGs with the required HTTP, SSH, and MySQL rules.
 
-### Evidence
+## Evidence
 
-#### Screenshot 1 — Virtual Network overview showing the 10.0.0.0/16 address space and both subnets
+#### Screenshot 1 — Virtual Network configuration showing the `10.0.0.0/16` address space and both subnets
 
 ![Screenshot 1](screenshots/A5-S1.png)
 
@@ -56,53 +56,53 @@ Launch an Ubuntu 22.04 LTS VM (Standard B1s or equivalent) in the public subnet,
 
 ---
 
-# Task 3 — Deploy the EpicBook Application
+# Task 3 — Configure Azure Database for MySQL and Prepare the EpicBook Database
 
 ## Goal
 
-Clone the EpicBook repository, install dependencies, build the frontend, configure Nginx to serve it, and configure the Node.js/Express.js backend to connect to MySQL using environment variables.
+Create Azure Database for MySQL Flexible Server using Private access (VNet Integration) in the delegated database subnet. Clone the EpicBook repository to the VM, create `bookstore`, import the schema and seed data, and verify the database contents.
 
-### Evidence
+## Evidence
 
-#### Screenshot 6 — Terminal showing the EpicBook repository cloned and dependencies installed
+#### Screenshot 6 — MySQL Flexible Server overview showing the server running and configured with private access
 
 ![Screenshot 6](screenshots/A5-S6.png)
 
 ---
 
-#### Screenshot 7 — Nginx configuration or service status proving the frontend is configured to be served
+#### Screenshot 7 — MySQL networking configuration showing the server connected to the private database subnet
 
 ![Screenshot 7](screenshots/A5-S7.png)
 
 ---
 
-#### Screenshot 8 — Backend process or listening-port evidence (without exposing environment-variable secrets)
+#### Screenshot 8 — VM terminal showing the `bookstore` database tables and seeded author and book records
 
 ![Screenshot 8](screenshots/A5-S8.png)
 
 ---
 
-# Task 4 — Setup Azure Database for MySQL
+# Task 4 — Deploy and Configure the EpicBook Application
 
 ## Goal
 
-Create a private Azure Database for MySQL Flexible Server (VNet Integration) in the private subnet, create the database user and schema, import the SQL dump, and restrict access to the VM subnet only.
+Install the EpicBook dependencies, configure `config/config.json` with the Azure MySQL connection details, and configure Nginx to proxy HTTP traffic from port 80 to the Node.js application on port 8080.
 
-### Evidence
+## Evidence
 
-#### Screenshot 9 — MySQL Flexible Server overview showing Private access (VNet Integration)
+#### Screenshot 9 — Terminal showing the EpicBook repository, successful dependency installation, and the `node_modules` folder
 
 ![Screenshot 9](screenshots/A5-S9.png)
 
 ---
 
-#### Screenshot 10 — Networking configuration showing the private subnet and restricted access
+#### Screenshot 10 — EpicBook Nginx configuration showing `proxy_pass http://127.0.0.1:8080`, or successful `sudo nginx -t` output and active Nginx service status
 
 ![Screenshot 10](screenshots/A5-S10.png)
 
 ---
 
-#### Screenshot 11 — MySQL Client output showing the EpicBook database or imported tables (no password visible)
+#### Screenshot 11 — Terminal showing the EpicBook application running and listening on port 8080
 
 ![Screenshot 11](screenshots/A5-S11.png)
 
@@ -112,9 +112,9 @@ Create a private Azure Database for MySQL Flexible Server (VNet Integration) in 
 
 ## Goal
 
-Confirm the EpicBook application loads through the VM's public IP and that viewing products, adding items to the cart, and placing orders all work.
+Verify that EpicBook loads through the VM’s public IP, displays products, supports cart operations and checkout, and records the corresponding changes in Azure Database for MySQL.
 
-### Evidence
+## Evidence
 
 #### Screenshot 12 — Browser showing the EpicBook application with the Virtual Machine public IP visible
 
@@ -122,7 +122,7 @@ Confirm the EpicBook application loads through the VM's public IP and that viewi
 
 ---
 
-#### Screenshot 13 — Proof of a successful database-backed action (viewing products, adding to cart, or placing an order)
+#### Screenshot 13 — Proof of a successful cart or order action together with the corresponding database verification
 
 ![Screenshot 13](screenshots/A5-S13.png)
 
@@ -138,20 +138,29 @@ Paste the public IP URL of your Virtual Machine here:
 
 # Submission Instructions
 
-- Add all required screenshots in your submission
-- Include the Virtual Machine public IP URL
-- Do not expose database passwords, connection strings, or subscription IDs
+- Include your full name and Screenshots **1–15** under the corresponding evidence headings.
+- Include the working **Virtual Machine public IP URL** and published **LinkedIn post URL**.
+- Add brief notes describing your network, VM, application, and database configuration.
+- Include proof of product viewing, cart operations, and order placement.
+- Ensure screenshots are readable and show your own environment.
+- Do not expose database passwords, private keys, connection strings containing credentials, subscription IDs, or other sensitive information.
+- Submit your work using the method specified in the assignment guidelines.
 
 ---
 
 # Completion Checklist
 
-- [ ] Task 1: Network foundation created with public/private subnets and NSGs (Screenshots 1–3)
-- [ ] Task 2: VM provisioned and required software installed (Screenshots 4–5)
-- [ ] Task 3: EpicBook frontend and backend deployed (Screenshots 6–8)
-- [ ] Task 4: Private Azure Database for MySQL created and data imported (Screenshots 9–11)
-- [ ] Task 5: End-to-end functionality validated (Screenshots 12–13, Public IP URL)
-- [ ] No sensitive data exposed
+- [ ] Task 1: Resource Group, VNet, subnets, and NSGs created (Screenshots 1–2)
+- [ ] Task 2: VM deployed with NIC and Public IP, and required software installed (Screenshots 3–5)
+- [ ] Task 3: Private MySQL server configured, `bookstore` created, and schema and seed data imported (Screenshots 6–8)
+- [ ] Task 4: EpicBook configured and running behind Nginx (Screenshots 9–11)
+- [ ] Task 5: Product viewing, cart operations, checkout, and database changes verified (Screenshots 12–13)
+- [ ] PM2 configured, startup command completed, and process list saved (Screenshot 14)
+- [ ] Application remains accessible through Nginx while running under PM2
+- [ ] LinkedIn post published with the required hashtags, credit note, and tags (Screenshot 15)
+- [ ] Full name, working website URL, and LinkedIn post URL included
+- [ ] Brief configuration notes included
+- [ ] All screenshots readable and no sensitive information exposed
 
 ---
 

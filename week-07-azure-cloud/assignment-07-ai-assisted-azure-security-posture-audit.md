@@ -6,19 +6,27 @@ Part of the DevOps Micro Internship (DMI) with Agentic AI
 
 ## Purpose
 
-In this assignment, you will build a read-only Bash script that audits the Azure resources you deployed earlier this week — a virtual machine, a three-tier network with a Load Balancer, a Storage Account, and an Azure Database for MySQL server — for common security misconfigurations. You will connect that script to Claude Code as a reusable `/azure-audit` skill that explains findings and recommends a fix without ever running it, then fix one real finding yourself and prove the fix with a second audit run. This is the same read-only-evidence-then-human-fixes discipline from Week 3, now applied to Azure with the `az` CLI instead of Linux commands — and the cloud-agnostic counterpart to the AWS audit you built in Week 6.
+Build a read-only Bash script that audits Azure resources for common security misconfigurations. Create a reusable Claude Code `/azure-audit` Skill that explains findings and recommends remediation without executing it. Fix one finding yourself and rerun the audit to verify the result.
+
+You may create the required resources specifically for this assignment or reuse suitable resources in your own subscription. A Load Balancer and a deployed application are not required.
 
 ---
 
-# Task 1 — Confirm Your Resources and Create the Workspace
+# Task 1 — Confirm Your Azure Resources and Create the Workspace
 
 ## Goal
 
-Confirm your Azure CLI is authenticated and can see the VM, network, storage account, and MySQL server you built this week, then set up a workspace folder for the audit.
+Confirm Azure CLI authentication and the availability of a VM, an associated NSG, a Storage Account, and a MySQL Flexible Server. Create the workspace with `scripts`, `reports`, and `.claude/skills/azure-audit` directories.
 
-### Evidence
+## Evidence
 
-#### Screenshot 1 — `az account show` and `az vm list -d -o table` confirming your subscription and running VM (subscription ID partially blurred)
+#### Screenshot 1 — Azure CLI showing the subscription name, VM, Storage Account, and MySQL Flexible Server without exposing subscription or tenant IDs
+
+Add your screenshot here.
+
+---
+
+#### Screenshot 2 — Workspace location and directory structure shown using `pwd` and `find . -maxdepth 4 -type d | sort`
 
 ![Screenshot 1](screenshots/A7-S1.png)
 
@@ -28,11 +36,11 @@ Confirm your Azure CLI is authenticated and can see the VM, network, storage acc
 
 ## Goal
 
-Create a `CLAUDE.md` for this workspace that tells Claude what the audit covers and the safety rules it must follow: never run a mutating `az` command, never claim a finding without report evidence, and always let the human review and run any remediation.
+Create `CLAUDE.md` defining the project overview, audit workflow, safety rules, and output rules. Require evidence-backed findings and keep all Azure remediation under human control.
 
-### Evidence
+## Evidence
 
-#### Screenshot 2 — `CLAUDE.md` open in your editor showing the project overview, audit workflow, and safety rules
+#### Screenshot 3 — `CLAUDE.md` showing the Project Overview, Audit Workflow, Safety Rules, and Output Rules sections
 
 ![Screenshot 2](screenshots/A7-S2.png)
 
@@ -42,11 +50,11 @@ Create a `CLAUDE.md` for this workspace that tells Claude what the audit covers 
 
 ## Goal
 
-Ask Claude Code to read `CLAUDE.md` and propose a read-only, four-check audit plan (NSG rules open to `0.0.0.0/0` on port 22 or 3389, storage account public blob access, VM disk encryption status, and Azure Database for MySQL public network access) — without creating or editing any file yet.
+Ask Claude Code to read `CLAUDE.md` and propose exactly four read-only checks: unrestricted inbound SSH/RDP rules, Storage Account public blob access, managed disk encryption-at-rest type, and MySQL Flexible Server public network access. Do not allow file creation or modification during planning.
 
-### Evidence
+## Evidence
 
-#### Screenshot 3 — Claude Code showing the four-check plan, with no files created or modified
+#### Screenshot 4 — Claude Code showing the four-check audit plan, including evidence-gathering commands, healthy and risky results, and why each check matters
 
 ![Screenshot 3](screenshots/A7-S3.png)
 
@@ -56,9 +64,9 @@ Ask Claude Code to read `CLAUDE.md` and propose a read-only, four-check audit pl
 
 ## Goal
 
-Write a Bash script that runs the four checks from Task 3 using read-only `az` commands, writes a PASS/WARN/FAIL report with your Full Name, and exits with a different code for a healthy, warning, or failing result. Validate it with `bash -n` and make it executable.
+Create `scripts/azure-audit.sh` using read-only Azure CLI commands. Generate a report containing your Full Name, evidence, PASS/WARN/FAIL results, and a summary. Use exit codes **0 for HEALTHY**, **1 for WARN**, and **2 for FAIL**. Validate the script and make it executable.
 
-### Evidence
+## Evidence
 
 #### Screenshot 4 — Your script open in your editor, showing the check functions and the `az` commands they call
 
@@ -76,11 +84,17 @@ Write a Bash script that runs the four checks from Task 3 using read-only `az` c
 
 ## Goal
 
-Run the script against your live resources and read the report honestly, even if it shows a real finding — do not fix anything yet.
+Run the script, capture its exit code immediately, review all four results, and save `reports/baseline-report.txt` before making any remediation.
 
-### Evidence
+## Evidence
 
-#### Screenshot 6 — Script output showing your Full Name and all four checks with a PASS, WARN, or FAIL result
+#### Screenshot 10 — Baseline audit output showing your Full Name and all four check results
+
+Add your screenshot here.
+
+---
+
+#### Screenshot 11 — Captured exit code and final report summary
 
 ![Screenshot 6](screenshots/A7-S6.png)
 
@@ -90,9 +104,9 @@ Run the script against your live resources and read the report honestly, even if
 
 ## Goal
 
-Create a Claude Code skill restricted to read-only tools (no `Write`) that runs your script, reads the report, and explains every finding with the risk of leaving it unresolved — without ever running a remediation command itself.
+Create `.claude/skills/azure-audit/SKILL.md` with Bash, Read, and Grep permissions, without Write permission, and with manual invocation enabled. The Skill must run the audit, read the report, explain findings and their impact, and recommend remediation and verification commands without changing Azure resources.
 
-### Evidence
+## Evidence
 
 #### Screenshot 7 — Your skill file's frontmatter showing `allowed-tools` without `Write`
 
@@ -110,9 +124,11 @@ Create a Claude Code skill restricted to read-only tools (no `Write`) that runs 
 
 ## Goal
 
-Pick one WARN or FAIL finding (or deliberately open an NSG rule to port 22 from `0.0.0.0/0` if your baseline was already clean), save that failing report, run the remediation command yourself — scoped to your own IP, not left open — and confirm the second audit run shows it resolved.
+Save the before-fix report, review a recommended remediation, execute the fix yourself, and rerun `/azure-audit` to confirm that the finding is resolved. Save the after-fix report.
 
-### Evidence
+If the baseline is clean, use only the controlled temporary SSH-rule exercise permitted in the assignment guidelines. Do not deliberately expose the database or Storage Account.
+
+## Evidence
 
 #### Screenshot 9 — Saved report showing the original finding before the fix
 
@@ -146,25 +162,34 @@ So the cloud vendor and its command syntax changed completely, but the audit dis
 
 # Submission Instructions
 
-Complete all tasks in sequence.
-
-Your submission must include:
-- All 11 required screenshots
-- Do not expose your Azure subscription ID, tenant ID, client secrets, or connection strings
+- Include your Full Name and Screenshots **1–17** under the corresponding evidence headings.
+- Answer every **Notes You Must Write** question.
+- Include the required source files and saved reports through your GitHub repository/folder link.
+- Include your published LinkedIn post URL.
+- Ensure required outputs show your Full Name.
+- Use multiple captures under an evidence heading where needed for readability.
+- Do not expose subscription IDs, tenant IDs, client secrets, passwords, tokens, connection strings, private keys, or other credentials.
+- After saving all evidence, remove temporary resources created specifically for this assignment as directed in the guidelines.
+- Submit your work using the method specified in the assignment guidelines.
 
 ---
 
 # Completion Checklist
 
-- [ ] Task 1: Azure resources confirmed and workspace created (Screenshot 1)
-- [ ] Task 2: `CLAUDE.md` created with project context and safety rules (Screenshot 2)
-- [ ] Task 3: Claude produced a read-only four-check plan before any script existed (Screenshot 3)
-- [ ] Task 4: Audit script built, syntax-checked, and executable (Screenshots 4–5)
-- [ ] Task 5: Baseline audit run and reviewed honestly (Screenshot 6)
-- [ ] Task 6: `/azure-audit` skill created with no `Write` permission and run successfully (Screenshots 7–8)
-- [ ] Task 7: A real finding fixed by you (not Claude) and re-verified as resolved (Screenshots 9–11)
-- [ ] Notes comparing this to the Week 6 AWS audit completed
-- [ ] No subscription IDs, tenant IDs, or credentials exposed
+- [ ] Task 1: Required resources confirmed and workspace created (Screenshots 1–2)
+- [ ] Task 2: `CLAUDE.md` contains project context, workflow, safety rules, and output rules (Screenshot 3)
+- [ ] Task 3: Four-check read-only plan completed before scripting (Screenshot 4)
+- [ ] Task 4: Script created, syntax-checked, and executable (Screenshots 5–9)
+- [ ] Task 5: Baseline report saved and exit code verified (Screenshots 10–11)
+- [ ] Task 6: `/azure-audit` Skill created and run without executing remediation (Screenshots 12–13)
+- [ ] Task 7: Finding documented, fixed manually, and verified as resolved (Screenshots 14–16)
+- [ ] Baseline, before-fix, and after-fix reports saved
+- [ ] All required written answers completed in my own words
+- [ ] Required files and GitHub repository/folder URL included
+- [ ] LinkedIn post published with the applicable credit note and tags (Screenshot 17)
+- [ ] LinkedIn post URL included
+- [ ] Full Name visible in required outputs
+- [ ] No sensitive information exposed
 
 ---
 
