@@ -28,7 +28,7 @@ docker network ls
 
 The output must include the default `bridge`, `host`, and `none` networks.
 
-Add your screenshot here.
+![Screenshot 1](screenshots/a3-s1.png)
 
 ---
 
@@ -40,7 +40,7 @@ Add a screenshot of the terminal showing successful completion of:
 docker pull nginx:alpine
 ```
 
-Add your screenshot here.
+![Screenshot 2](screenshots/a3-s2.png)
 
 ---
 
@@ -58,7 +58,7 @@ The output must show the running `myweb` container with:
 0.0.0.0:80->80/tcp
 ```
 
-Add your screenshot here.
+![Screenshot 3](screenshots/a3-s3.png)
 
 ---
 
@@ -72,7 +72,7 @@ http://<YOUR-VM-PUBLIC-IP>
 
 Ensure that the VM public IP is visible in the address bar. Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![Screenshot 4](screenshots/a3-s4.png)
 
 ---
 
@@ -92,7 +92,7 @@ Add a screenshot of the terminal showing `mynetwork` in:
 docker network ls
 ```
 
-Add your screenshot here.
+![Screenshot 5](screenshots/a3-s5.png)
 
 ---
 
@@ -106,7 +106,7 @@ docker ps
 
 The output must show both `web` and `client` containers running without published host ports.
 
-Add your screenshot here.
+![Screenshot 6](screenshots/a3-s6.png)
 
 ---
 
@@ -120,7 +120,7 @@ docker exec client wget -qO- http://web
 
 The output must display the Nginx Welcome Page HTML.
 
-Add your screenshot here.
+![Screenshot 7](screenshots/a3-s7.png)
 
 ---
 
@@ -134,7 +134,7 @@ docker network inspect mynetwork
 
 The output must show both `web` and `client` connected to `mynetwork`.
 
-Add your screenshot here.
+![Screenshot 8](screenshots/a3-s8.png)
 
 ---
 
@@ -156,7 +156,7 @@ docker network ls
 
 The output must include both `frontend-network` and `backend-network`.
 
-Add your screenshot here.
+![Screenshot 9](screenshots/a3-s9.png)
 
 ---
 
@@ -174,7 +174,7 @@ The output must show:
 - `backend` without a published host port
 - `db` without a published host port
 
-Add your screenshot here.
+![Screenshot 10](screenshots/a3-s10.png)
 
 ---
 
@@ -188,7 +188,7 @@ docker network inspect frontend-network
 
 The output must show `frontend` and `backend`.
 
-Add your screenshot here.
+![Screenshot 11](screenshots/a3-s11.png)
 
 ---
 
@@ -202,7 +202,7 @@ docker network inspect backend-network
 
 The output must show `backend` and `db`.
 
-Add your screenshot here.
+![Screenshot 12](screenshots/a3-s12.png)
 
 ---
 
@@ -216,7 +216,7 @@ docker exec frontend wget -qO- http://backend
 
 The output must display the Nginx Welcome Page HTML.
 
-Add your screenshot here.
+![Screenshot 13](screenshots/a3-s13.png)
 
 ---
 
@@ -224,7 +224,7 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing a successful connection to `db` on port `27017` from the `backend` container.
 
-Add your screenshot here.
+![Screenshot 14](screenshots/a3-s14.png)
 
 ---
 
@@ -238,7 +238,7 @@ The output must include:
 Expected result: frontend cannot reach db
 ```
 
-Add your screenshot here.
+![Screenshot 15](screenshots/a3-s15.png)
 
 ---
 
@@ -252,7 +252,7 @@ http://<YOUR-VM-PUBLIC-IP>
 
 Ensure that the VM public IP is visible in the address bar. Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![Screenshot 16](screenshots/a3-s16.png)
 
 ---
 
@@ -274,7 +274,7 @@ docker ps
 
 The output must show the running `fastapp` container.
 
-Add your screenshot here.
+![Screenshot 17](screenshots/a3-s17.png)
 
 ---
 
@@ -292,7 +292,7 @@ The output must confirm:
 "NetworkMode": "host"
 ```
 
-Add your screenshot here.
+![Screenshot 18](screenshots/a3-s18.png)
 
 ---
 
@@ -306,7 +306,7 @@ http://<YOUR-VM-PUBLIC-IP>
 
 Ensure that the VM public IP is visible in the address bar. Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![Screenshot 19](screenshots/a3-s19.png)
 
 ---
 
@@ -319,7 +319,7 @@ docker stop fastapp
 docker rm fastapp
 ```
 
-Add your screenshot here.
+![Screenshot 20](screenshots/a3-s20.png)
 
 ---
 
@@ -332,7 +332,21 @@ Write a short note explaining:
 - Why the frontend could not access the database in Task 3
 - The difference between bridge mode and host network mode
 
-Write your note here.
+Default bridge networking
+
+When I run a container without choosing a network, Docker puts it on the default bridge network. Each container gets its own private IP address, and containers on this network can talk to each other by IP. They cannot use container names to find each other. To open a container to the outside world, I have to publish a port with -p. That is how I made myweb reachable on port 80 using the VM’s public IP.
+
+Container-name communication on a custom bridge network
+
+When I created mynetwork, Docker gave it a built-in DNS service. Any container on that network can find another one just by its name. I proved this by running wget http://web from the client container, and it returned the Nginx welcome page. I did not need the IP address or a published port. This helps in real projects because container IPs can change when containers restart, but names stay the same.
+
+Why the frontend could not access the database in Task 3
+
+I used two networks. The frontend and backend containers were on frontend-network. The backend and db containers were on backend-network. The frontend container was never added to backend-network, so it could not even look up the name db. The test failed with a getaddrinfo error, which is exactly what I expected. The backend container was on both networks, so it could talk to both sides. Docker does not pass traffic between networks by itself. This keeps the database private, and only the frontend had a published port.
+
+Bridge mode vs host network mode
+
+In bridge mode, the container has its own network space and IP address. It is separated from the VM, and I choose which ports to open with -p. In host mode, the container shares the VM’s network directly. There is no -p needed, because Nginx listens on the VM’s port 80 itself. Host mode is simple and has less network overhead, but it gives less isolation. Two containers using the same port would also clash. Bridge mode is safer and more flexible, so it is the better choice for most apps.
 
 ---
 
@@ -348,13 +362,13 @@ Create a LinkedIn post about the Docker networking modes explored, one key lesso
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/ayomikunphilip_docker-dockernetworking-devops-ugcPost-7523444765158440961-IZt9/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs`
 
 ---
 
 #### LinkedIn Post Screenshot
 
-Add a screenshot of the published LinkedIn post here.
+![Screenshot 21](screenshots/a3-s21.png)
 
 ---
 
