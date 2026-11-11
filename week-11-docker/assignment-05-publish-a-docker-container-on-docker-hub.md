@@ -26,7 +26,7 @@ Add a screenshot of Docker Hub showing your newly created public repository:
 my-react-app
 ```
 
-Add your screenshot here.
+![Screenshot 1](screenshots/a5-s1.png)
 
 ---
 
@@ -40,7 +40,7 @@ Login Succeeded
 
 Ensure that your full name is visible and that no password, Personal Access Token, or device code is exposed.
 
-Add your screenshot here.
+![Screenshot 2](screenshots/a5-s2.png)
 
 ---
 
@@ -54,7 +54,7 @@ docker image ls <YOUR_DOCKERHUB_USERNAME>/my-react-app
 
 The output must show the `latest` tag.
 
-Add your screenshot here.
+![Screenshot 3](screenshots/a5-s3.png)
 
 ---
 
@@ -68,7 +68,7 @@ docker push <YOUR_DOCKERHUB_USERNAME>/my-react-app:latest
 
 The output must include a pushed status or image digest.
 
-Add your screenshot here.
+![Screenshot 4](screenshots/a5-s4.png)
 
 ---
 
@@ -76,7 +76,7 @@ Add your screenshot here.
 
 Add a screenshot of your Docker Hub repository showing the uploaded `latest` image tag.
 
-Add your screenshot here.
+![Screenshot 5](screenshots/a5-s5.png)
 
 ---
 
@@ -88,7 +88,7 @@ Add a screenshot of the terminal showing:
 - Successful `docker pull` output
 - `docker image ls` showing the pulled image
 
-Add your screenshot here.
+![Screenshot 6](screenshots/a5-s6.png)
 
 ---
 
@@ -106,7 +106,7 @@ The output must show the running `react-container` with:
 0.0.0.0:80->80/tcp
 ```
 
-Add your screenshot here.
+![Screenshot 7](screenshots/a5-s7.png)
 
 ---
 
@@ -120,13 +120,13 @@ http://<YOUR-VM-PUBLIC-IP>
 
 Ensure that the VM public IP is visible in the address bar. Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![Screenshot 8](screenshots/a5-s8.png)
 
 ---
 
 # Docker Hub Repository URL
 
-**Repository URL:** `Add your Docker Hub repository URL here`
+**Repository URL:** `https://hub.docker.com/r/ayomikunphilip/my-react-app`
 
 ---
 
@@ -138,7 +138,17 @@ Write a short explanation covering:
 - Why a container registry is useful in DevOps workflows
 - Why production deployments should use versioned image tags instead of relying only on `latest`
 
-Write your explanation here.
+Why image tagging is required before pushing to Docker Hub
+
+Docker Hub needs to know where an image should go. A local image name like react-multistage has no username or repository in it, so Docker cannot tell which account to push it to. Tagging renames the image to ayomikunphilip/my-react-app:latest. The first part is the Docker Hub username, the middle part is the repository, and the last part is the version tag. Without this format, the push fails.
+
+Why a container registry is useful in DevOps workflows
+
+A container registry is a central place to store and share images. Once an image is built and tested, it can be pushed once and then pulled by any developer, test server, or production server. This means every environment runs the exact same image, so the app behaves the same everywhere. It also removes the need to rebuild the app on every machine, and it works well with automated pipelines that build, store, and deploy images.
+
+Why production deployments should use versioned image tags instead of relying only on latest
+
+The latest tag is just a label that moves to whichever image was pushed most recently. It does not tell you which version of the code is running, and it can change without warning. If a bad update is pushed, you cannot easily tell what changed or go back to the last working one. Versioned tags such as v1.0.1 or commit-a1b2c3d always point to one specific build. This makes deployments predictable, makes it easy to roll back to a known good version, and helps teams know exactly what is running in production.
 
 ---
 
@@ -162,13 +172,13 @@ Include:
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/ayomikunphilip_devops-docker-dockerhub-share-7526177888786927618-qm29/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAF4cLMMBGj_ND3_b5bGU28ywvq8aZAW62fs`
 
 ---
 
 #### LinkedIn Post Screenshot
 
-Add a screenshot of the published LinkedIn post here.
+![Screenshot 9](screenshots/a5-s9.png)
 
 ---
 
